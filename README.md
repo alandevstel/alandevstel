@@ -26,4 +26,7 @@ Atualmente, estou focado em:
 ---
 
 ### 📊 GitHub Stats
+<div align="center" style="margin-bottom:100px; display: flex; justify-content: center; gap: 10px;">
+  <img style="width: 45%;" src="https://github-readme-streak-stats.herokuapp.com?user=alandevstel&theme=radical&mode=weekly" alt="GitHub Readme Streak Stats" />
+</div>
 
