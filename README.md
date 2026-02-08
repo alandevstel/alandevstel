@@ -1,6 +1,6 @@
 # Olá, eu sou o Alan! 👋
 
-Sou um desenvolvedor apaixonado por **Java, Spring Boot e Angular**, com forte interesse em DevOps e Inteligência Artificial.
+Sou um desenvolvedor apaixonado por **Java, Spring Boot e Angular**, com forte interesse em DevOps.
 
 Atualmente, estou focado em:
 - 🔭 Desenvolvimento de aplicações robustas com **Spring Boot** e **Angular**.
