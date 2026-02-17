@@ -20,6 +20,13 @@ Apaixonado por criar sistemas robustos e escaláveis, meu foco atual é dominar 
 <br/>
 
 <div align="center">
+  <h3>Histórico de Contribuições</h3>
+  <img src="https://ghchart.rshah.org/a78bfa/alandevstel" alt="Alan's Github Chart" width="100%"/>
+</div>
+
+<br/>
+
+<div align="center">
   <img src="./assets/generated/tech-stack.svg" width="100%" alt="Tech Stack"/>
 </div>
 
