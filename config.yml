@@ -46,10 +46,10 @@ galaxy_arms:
 # Featured projects shown as constellation stars
 # Dica: Verifique se os nomes dos repositórios abaixo estão exatos ou ajuste-os
 projects:
-  - repo: "alandevstel/finai" # Suposição baseada no seu projeto de finanças
+  - repo: "alandevstel/gerador-de-codigo" 
     arm: 0
-    description: "Aplicação de gestão financeira pessoal focada em controle de despesas e orçamento."
-  - repo: "alandevstel/compilador-php" # Suposição baseada no seu projeto acadêmico
+    description: "Aplicação para evitar boilerplate."
+  - repo: "alandevstel/compilador-php" 
     arm: 2
     description: "Implementação de um compilador com analisadores léxico, sintático e semântico."
 
