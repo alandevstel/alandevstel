@@ -41,7 +41,9 @@ galaxy_arms:
     items:
       - "Docker"
       - "Jenkins"
-      - "Kubernetes"
+      - "Nexus"
+      - "GitHub Actions"
+      - "Maven"
 
 # Featured projects shown as constellation stars
 # Dica: Verifique se os nomes dos repositórios abaixo estão exatos ou ajuste-os
@@ -49,9 +51,9 @@ projects:
   - repo: "alandevstel/gerador-de-codigo" 
     arm: 0
     description: "Aplicação para evitar boilerplate."
-  - repo: "alandevstel/compilador-php" 
+  - repo: "alandevstel/aluno-presente" 
     arm: 2
-    description: "Implementação de um compilador com analisadores léxico, sintático e semântico."
+    description: "Sistema de presença automatica para os alunos da rede publico de todo o brasil."
 
 # Theme color overrides (optional — defaults to deep space palette)
 theme:

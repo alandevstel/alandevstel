@@ -23,11 +23,7 @@ class GitHubAPI:
             self.headers["Authorization"] = f"Bearer {self.token}"
 
     def _request(self, method: str, url: str, **kwargs) -> requests.Response:
-        """Make an HTTP request with rate-limit awareness and retry.
-
-        Checks X-RateLimit-Remaining after each response.
-        On 403 rate-limit, waits until reset and retries once.
-        """
+        """Make an HTTP request with rate-limit awareness and retry."""
         kwargs.setdefault("headers", self.headers)
         kwargs.setdefault("timeout", 15)
 
@@ -61,6 +57,7 @@ class GitHubAPI:
 
     def _fetch_stats_graphql(self) -> dict:
         """Fetch stats via GraphQL for accurate counts including private contributions."""
+        # MUDANÇA 1: Adicionado COLLABORATOR e ORGANIZATION_MEMBER na query
         query = """
         query($username: String!) {
           user(login: $username) {
@@ -73,7 +70,7 @@ class GitHubAPI:
             issues {
               totalCount
             }
-            repositories(ownerAffiliations: OWNER, first: 100) {
+            repositories(ownerAffiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER], first: 100) {
               totalCount
               nodes {
                 stargazerCount
@@ -166,13 +163,14 @@ class GitHubAPI:
         }
 
     def _paginate_repos(self):
-        """Yield pages of owned repos from the REST API."""
+        """Yield pages of repos from the REST API."""
         page = 1
         while True:
+            # MUDANÇA 2: Alterado type="owner" para type="all" para pegar organizações
             repos_resp = self._request(
                 "GET",
                 f"{self.REST_URL}/users/{self.username}/repos",
-                params={"per_page": 100, "page": page, "type": "owner"},
+                params={"per_page": 100, "page": page, "type": "all"},
             )
             repos_resp.raise_for_status()
             repos = repos_resp.json()
@@ -203,8 +201,10 @@ class GitHubAPI:
         languages = {}
         for repos in self._paginate_repos():
             for repo in repos:
+                # Se você trabalha em Forks dentro da empresa, comente as duas linhas abaixo:
                 if repo.get("fork"):
-                    continue
+                   continue
+                
                 try:
                     lang_resp = self._request("GET", repo["languages_url"])
                     if lang_resp.status_code == 200:
